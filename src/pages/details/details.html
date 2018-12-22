@@ -1,0 +1,110 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-navbar color="Bleu">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-auto>
+          <ion-title><h1>{{anime.name}}</h1></ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="detailsTrash" name="trash" color="danger" (click)="deleteAnime(anime.name)"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+  
+
+</ion-header>
+
+
+<ion-content padding class="background">
+    <img src="{{anime.image}}" alt="">
+    <ion-grid>
+      <ion-row> 
+        <ion-col col-auto>
+          <p class="h5">lien du scan francais</p>
+        </ion-col>
+        <ion-col >
+            
+              <ion-icon class="test" name="create" (click)="changeScanFR()"></ion-icon>
+            
+        </ion-col>
+      </ion-row>
+              <a  href="{{anime.scanFR}}">{{anime.scanFR}}</a>
+
+
+
+      <ion-row>
+
+        <ion-col col-auto>
+          <p class="h5">lien du scan anglais</p>
+        </ion-col>
+
+        <ion-col>
+            
+              <ion-icon class="test" name="create" (click)="changeScanAN()" ></ion-icon>
+
+        </ion-col>
+
+      </ion-row>
+              <a  href="{{anime.scanAN}}">{{anime.scanAN}}</a>
+
+              
+
+      <ion-row>
+          
+          <ion-col col-auto>
+              <p class="h5">lien streaming</p>
+          </ion-col>
+
+
+          <ion-col>
+              <ion-icon class="test"  name="create"  (click)="changeStream()"></ion-icon>
+          </ion-col>
+
+      </ion-row>
+    <a  href="{{anime.streaming}}">{{anime.streaming}}</a>
+
+
+    <ion-row>
+          
+        <ion-col col-auto>
+            <p class="h5">lien de l'image</p>
+        </ion-col>
+
+
+        <ion-col>
+            <ion-icon class="test"  name="create"  (click)="changeImage()"></ion-icon>
+        </ion-col>
+        
+
+    </ion-row>
+          
+
+
+
+
+
+    </ion-grid>
+
+
+
+
+
+
+
+      
+
+
+
+      
+
+
+
+</ion-content>

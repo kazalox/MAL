@@ -1,14 +1,70 @@
-<ion-header>
-  <ion-navbar>
+<ion-header >
+  <ion-navbar color="Bleu">
     <ion-title>
-      Ionic Blank
+      My Anime List
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="background" >
+  <ion-searchbar margin-top="10px" [(ngModel)]="terms"></ion-searchbar>
+  <ion-list inset >
+       
+      
+    <ion-item-sliding *ngFor="let anime of animeList | search : terms | sort: {property: column, order: order}" style="margin:10px">
+      <ion-item class="item">
+        <ion-grid>
+          <ion-row (click)="animeSelected(anime)">
+            <ion-col col-auto>
+                <ion-avatar item-sart>
+                  <img src="{{anime.image}}">
+                </ion-avatar>
+            </ion-col>
+            <ion-col>
+              <h2 >
+                {{anime.name}}
+              </h2>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+          
+      
+          
+    
+      </ion-item>
+    
+    <ion-item-options side="right">
+      <button ion-button color="grisClaire" (click)="animeSelected(anime)">...</button>
+      <button ion-button color="danger"  (click)="deleteAnime(anime.name)" ><ion-icon name="trash"></ion-icon></button>
+    </ion-item-options>
+    <ion-item-options side="left">
+        <button ion-button color="danger"  (click)="deleteAnime(anime.name)" ><ion-icon name="trash"></ion-icon></button>
+        <button ion-button color="grisClaire" (click)="animeSelected(anime)">...</button>
+      </ion-item-options>
+    
+    </ion-item-sliding>
+    
+
+      
+  </ion-list>
+
+
+ <ion-fab right bottom >
+   <button ion-fab (click)="newAnime()">
+     <ion-icon name="add">
+
+     </ion-icon>
+  </button>
+  </ion-fab>
+
+  
+
+
+   
+
+
+
+
+
+
 </ion-content>
